@@ -50,6 +50,7 @@ var Careeritem = Career[randInt]
 
 var randInt = Math.floor(Math.random() * (VCareer.length) ) ;
 var VCareeritem = VCareer[randInt]
+form.Textblock.value = "Genre: " + Sitem + "\nTaboo: " + Tabooitem +" Protag Desires: "+Nitem +" Vill Desires: "+VNitem+ " Protag fears: " + Fitem+" Vill fears: " + VFitem + " Protag career: " + Careeritem + " Antagonist career: " + VCareeritem;
 form.Settings.value = "Genre: " + Sitem
 form.Taboo.value = "Taboo: " + Tabooitem
 form.Needs.value = "Protag Desires: "+Nitem
@@ -61,7 +62,6 @@ form.Antag.value = "Antagonist career: " + VCareeritem
 
 storedPrompts.push( "Genre: " + Sitem + " Taboo: " + Tabooitem + " Protag Desires: " + Nitem + " Vill Desires: " + VNitem + " Protag fears: " + Fitem + " Vill fears: " + VFitem +    " Protag career: " + Careeritem + " Antagonist career: " + VCareeritem  );
 var textToWrite = "Genre: " + Sitem + "\nTaboo: " + Tabooitem +" Protag Desires: "+Nitem +" Vill Desires: "+VNitem+ " Protag fears: " + Fitem+" Vill fears: " + VFitem + " Protag career: " + Careeritem + " Antagonist career: " + VCareeritem;
-form.Textblock.value = "Genre: " + Sitem + "\nTaboo: " + Tabooitem +" Protag Desires: "+Nitem +" Vill Desires: "+VNitem+ " Protag fears: " + Fitem+" Vill fears: " + VFitem + " Protag career: " + Careeritem + " Antagonist career: " + VCareeritem;
 
 /*var existingContent = localStorage.getItem('downloadableContent') || '';
 var updatedContent = existingContent + textToWrite;

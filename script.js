@@ -59,25 +59,10 @@ form.Vfears.value = "Vill fears: " + VFitem
 form.Career.value = "Protag career: " + Careeritem
 form.Antag.value = "Antagonist career: " + VCareeritem
 
-
- storedPrompts.push(
-    "Genre: " + Sitem + " Taboo: " + Tabooitem + " Protag Desires: " + Nitem +
-    " Vill Desires: " + VNitem + " Protag fears: " + Fitem + " Vill fears: " + VFitem +
-    " Protag career: " + Careeritem + " Antagonist career: " + VCareeritem
-  );
+storedPrompts.push( "Genre: " + Sitem + " Taboo: " + Tabooitem + " Protag Desires: " + Nitem + " Vill Desires: " + VNitem + " Protag fears: " + Fitem + " Vill fears: " + VFitem +    " Protag career: " + Careeritem + " Antagonist career: " + VCareeritem  );
 var textToWrite = "Genre: " + Sitem + "\nTaboo: " + Tabooitem +" Protag Desires: "+Nitem +" Vill Desires: "+VNitem+ " Protag fears: " + Fitem+" Vill fears: " + VFitem + " Protag career: " + Careeritem + " Antagonist career: " + VCareeritem;
-form.Textblock.value = textToWrite 
-function downloadAllPrompts() {
-  // Create a text blob from stored prompts
-  var textToSave = storedPrompts.join('\n\n');
-  var blob = new Blob([textToSave], { type: 'text/plain' });
+form.Textblock.value = "Genre: " + Sitem + "\nTaboo: " + Tabooitem +" Protag Desires: "+Nitem +" Vill Desires: "+VNitem+ " Protag fears: " + Fitem+" Vill fears: " + VFitem + " Protag career: " + Careeritem + " Antagonist career: " + VCareeritem;
 
-  // Create a link element and trigger the download
-  var link = document.createElement('a');
-  link.download = 'all_horror_prompts.txt';
-  link.href = window.URL.createObjectURL(blob);
-  link.click();
-}	
 /*var existingContent = localStorage.getItem('downloadableContent') || '';
 var updatedContent = existingContent + textToWrite;
 
@@ -93,3 +78,15 @@ link.download ='horror_prompts.txt';
 link.click(); */
 
 }
+
+function downloadAllPrompts() {
+  // Create a text blob from stored prompts
+  var textToSave = storedPrompts.join('\n\n');
+  var blob = new Blob([textToSave], { type: 'text/plain' });
+
+  // Create a link element and trigger the download
+  var link = document.createElement('a');
+  link.download = 'all_horror_prompts.txt';
+  link.href = window.URL.createObjectURL(blob);
+  link.click();
+}	

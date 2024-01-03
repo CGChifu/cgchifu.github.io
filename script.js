@@ -10,9 +10,7 @@ var VF = ["death", "suffocation", "paralysis", "rejection", "being shunned", "lo
 var Career = [ "Waiter/Waitress", "Retail Worker",  "Janitor/Cleaner",  "Delivery Driver", "Receptionist",  "Barista", "Freelance Writer", "Assistant Teacher", "Personal Assistant",  "Social Media Manager", "Bartender",  "Security Guard",  "Farm Worker",  "Taxi/Uber Driver",  "Customer Service Representative",  "Cashier",  "Caregiver/Nurse Assistant",  "Sales Representative",  "Event Planner",  "Data Entry Clerk",  "Graphic Designer",  "Fitness Instructor",  "Librarian",  "Chef/Cook",  "Photographer",  "Construction Worker",  "Bank Teller",  "Veterinary Assistant",  "Travel Agent",  "Electrician",  "Plumber",  "Journalist", "Paramedic","Legal Assistant",  "Translator/Interpreter",  "Archivist",  "Carpenter",  "Musician",  "Hairdresser/Barber",  "Real Estate Agent",  "Childcare Worker",  "Landscaper/Gardener",  "Flight Attendant",  "Insurance Agent",  "Painter",  "Pharmacy Technician",  "Fitness Trainer",  "Sous Chef",  "Mover",  "Claims Adjuster",  "Social Worker",  "Web Developer",  "Marketing Coordinator",  "Dental Assistant",  "Theater Actor/Actress", "Event Coordinator",  "Massage Therapist",  "IT Support Specialist",  "Architect",  "Biologist",  "Fashion Designer",  "Software Engineer",  "Mechanic",  "Human Resources Coordinator",  "Paramedic",  "Bankruptcy Lawyer",  "Meteorologist",  "Stylist",  "Dietitian/Nutritionist",  "Optometrist",  "Chemist",  "Marine Biologist",  "Speech Therapist",  "Phlebotomist",  "Probation Officer",  "Art Director",  "Zoologist",  "Chiropractor",  "Sports Agent",  "Air Traffic Controller",  "Film Director",  "Geologist",  "Academic Advisor",  "Orthodontist",  "Forensic Scientist",  "Public Relations Specialist",  "Financial Analyst", "Criminal Investigator",  "Professor",  "Nuclear Engineer",  "Magazine Editor",  "Foreign Correspondent",  "Robotics Engineer",  "Political Analyst",  "Ethical Hacker",  "Astronomer",  "Astrophysicist",  "Cryptographer",  "Neuroscientist",  "Data Scientist",  "Ethnographer",  "Quantum Physicist",  "Game Developer",  "Environmental Lawyer",  "Biochemist",  "Screenwriter",  "Chief Technology Officer",  "Chief Executive Officer"]
 // Add more careers here...
 var VCareer = [ "Waiter/Waitress", "Retail Worker",  "Janitor/Cleaner",  "Delivery Driver", "Receptionist",  "Barista", "Freelance Writer", "Assistant Teacher", "Personal Assistant",  "Social Media Manager", "Bartender",  "Security Guard",  "Farm Worker",  "Taxi/Uber Driver",  "Customer Service Representative",  "Cashier",  "Caregiver/Nurse Assistant",  "Sales Representative",  "Event Planner",  "Data Entry Clerk",  "Graphic Designer",  "Fitness Instructor",  "Librarian",  "Chef/Cook",  "Photographer",  "Construction Worker",  "Bank Teller",  "Veterinary Assistant",  "Travel Agent",  "Electrician",  "Plumber",  "Journalist", "Paramedic","Legal Assistant",  "Translator/Interpreter",  "Archivist",  "Carpenter",  "Musician",  "Hairdresser/Barber",  "Real Estate Agent",  "Childcare Worker",  "Landscaper/Gardener",  "Flight Attendant",  "Insurance Agent",  "Painter",  "Pharmacy Technician",  "Fitness Trainer",  "Sous Chef",  "Mover",  "Claims Adjuster",  "Social Worker",  "Web Developer",  "Marketing Coordinator",  "Dental Assistant",  "Theater Actor/Actress", "Event Coordinator",  "Massage Therapist",  "IT Support Specialist",  "Architect",  "Biologist",  "Fashion Designer",  "Software Engineer",  "Mechanic",  "Human Resources Coordinator",  "Paramedic",  "Bankruptcy Lawyer",  "Meteorologist",  "Stylist",  "Dietitian/Nutritionist",  "Optometrist",  "Chemist",  "Marine Biologist",  "Speech Therapist",  "Phlebotomist",  "Probation Officer",  "Art Director",  "Zoologist",  "Chiropractor",  "Sports Agent",  "Air Traffic Controller",  "Film Director",  "Geologist",  "Academic Advisor",  "Orthodontist",  "Forensic Scientist",  "Public Relations Specialist",  "Financial Analyst", "Criminal Investigator",  "Professor",  "Nuclear Engineer",  "Magazine Editor",  "Foreign Correspondent",  "Robotics Engineer",  "Political Analyst",  "Ethical Hacker",  "Astronomer",  "Astrophysicist",  "Cryptographer",  "Neuroscientist",  "Data Scientist",  "Ethnographer",  "Quantum Physicist",  "Game Developer",  "Environmental Lawyer",  "Biochemist",  "Screenwriter",  "Chief Technology Officer",  "Chief Executive Officer"]
-
-
-
+var storedprompts =[];
 
 function readText (form) {
     TestVar =form.inputbox.value;
@@ -52,29 +50,46 @@ var Careeritem = Career[randInt]
 
 var randInt = Math.floor(Math.random() * (VCareer.length) ) ;
 var VCareeritem = VCareer[randInt]
-
-				form.Settings.value = "Genre: " + Sitem
-				form.Taboo.value = "Taboo: " + Tabooitem
-				form.Needs.value = "Protag Desires: "+Nitem
+form.Settings.value = "Genre: " + Sitem
+form.Taboo.value = "Taboo: " + Tabooitem
+form.Needs.value = "Protag Desires: "+Nitem
 form.VNeeds.value = "Vill Desires: "+VNitem
-			form.fears.value = "Protag fears: " + Fitem
+form.fears.value = "Protag fears: " + Fitem
 form.Vfears.value = "Vill fears: " + VFitem 
 form.Career.value = "Protag career: " + Careeritem
 form.Antag.value = "Antagonist career: " + VCareeritem
-form.Textblock.value
+
+
+ storedPrompts.push(
+    "Genre: " + Sitem + " Taboo: " + Tabooitem + " Protag Desires: " + Nitem +
+    " Vill Desires: " + VNitem + " Protag fears: " + Fitem + " Vill fears: " + VFitem +
+    " Protag career: " + Careeritem + " Antagonist career: " + VCareeritem
+  );
 var textToWrite = "Genre: " + Sitem + "\nTaboo: " + Tabooitem +" Protag Desires: "+Nitem +" Vill Desires: "+VNitem+ " Protag fears: " + Fitem+" Vill fears: " + VFitem + " Protag career: " + Careeritem + " Antagonist career: " + VCareeritem;
-var existingContent = localStorage.getItem('downloadableContent') || '';
+form.Textblock.value = textToWrite 
+function downloadAllPrompts() {
+  // Create a text blob from stored prompts
+  var textToSave = storedPrompts.join('\n\n');
+  var blob = new Blob([textToSave], { type: 'text/plain' });
+
+  // Create a link element and trigger the download
+  var link = document.createElement('a');
+  link.download = 'all_horror_prompts.txt';
+  link.href = window.URL.createObjectURL(blob);
+  link.click();
+}	
+/*var existingContent = localStorage.getItem('downloadableContent') || '';
 var updatedContent = existingContent + textToWrite;
 
 localStorage.setItem('downloadableContent', updatedContent);
-
 var blob = new Blob ([updatedContent], {type: 'text/plain'});
 
 var url = window.URL.createObjectURL(blob);
 
-var link = document.createElement('a');
+var link = document.createElement('a'); 
+	
 link.href =url;
 link.download ='horror_prompts.txt';
-link.click();
+link.click(); */
 
 }
